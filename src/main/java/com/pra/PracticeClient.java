@@ -1,12 +1,11 @@
 package com.pra;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.ModInitializer;
+	import net.fabricmc.api.ClientModInitializer;
 
-public class PracticeClient implements ClientModInitializer {
+	public class PracticeClient implements ClientModInitializer {
 
-	@Override
-	public void onInitializeClient() {
+		@Override
+		public void onInitializeClient() {
 
+		}
 	}
-}

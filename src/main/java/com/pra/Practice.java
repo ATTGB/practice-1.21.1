@@ -1,5 +1,7 @@
 package com.pra;
 
+import com.pra.item.ModItems;
+import com.pra.models.ModComponents;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ public class Practice implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModComponents.initialize(); // Register components before the registry is frozen
+		ModItems.registerItems();
 	}
 }
