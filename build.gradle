@@ -11,17 +11,24 @@ base {
 }
 
 repositories {
+
 	maven {
 		name = 'BlameJared Maven (CrT / Bookshelf)'
 		url = 'https://maven.blamejared.com'
 	}
-}
-
-fabricApi {
-	configureDataGeneration {
-		client = true
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = 'GeckoLib'
+				url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+			}
+		}
+		filter {
+			includeGroup('software.bernie.geckolib')
+		}
 	}
 }
+
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -31,6 +38,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version}"
+
 
 	// Veil API.
 	modImplementation("foundry.veil:veil-fabric-${project.minecraft_version}:${project.veil_version}") {

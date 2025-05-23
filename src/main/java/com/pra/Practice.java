@@ -1,18 +1,18 @@
 package com.pra;
 
-import com.pra.item.ModItems;
-import com.pra.models.ModComponents;
-import net.fabricmc.api.ModInitializer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.pra.item.ModItems;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class Practice implements ModInitializer {
-	public static final String MOD_ID = "pra";
+ public static final String MOD_ID = "pra";
 
-	@Override
-	public void onInitialize() {
-		ModComponents.initialize(); // Register components before the registry is frozen
-		ModItems.registerItems();
-	}
+ @Override
+ public void onInitialize() {
+  ModItems.registerItems();
+
+  ServerTickEvents.END_WORLD_TICK.register(world -> {
+  });
+ }
 }
